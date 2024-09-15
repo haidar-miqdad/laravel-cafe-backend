@@ -82,7 +82,7 @@
                                 <div class="form-group">
                                     <label>Product Description</label>
                                     <input type="text" 
-                                    value="{{ $product->description }}"
+                                    value="{{ $product->stock }}"
                                         class="form-control @error('description') is-invalid
                                             
                                         @enderror" name="description">

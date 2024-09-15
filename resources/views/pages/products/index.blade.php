@@ -88,7 +88,7 @@
                                             <td>{{ $product->category }}
                                             </td>
                                             <td>
-                                                {{ $product->price }}
+                                                <td>{{ format_rupiah($product->price) }}</td>
                                             </td>
                                             <td>
                                                 {{ $product->stock }}
