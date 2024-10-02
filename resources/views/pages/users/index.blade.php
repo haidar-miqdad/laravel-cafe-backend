@@ -36,8 +36,8 @@
                     You can manage all Users, such as editing, deleting and more.
                 </p>
 
-                
-               
+
+
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
@@ -72,7 +72,7 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-                                        
+
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
@@ -93,30 +93,27 @@
                                             <td>{{ $user->created_at }}</td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
-                                                    <a href="{{ route('user.edit', $user->id) }}"
-                                                        class="btn btn-sm btn-info btn-icon">
-                                                        <i class="fas fa-edit">
-                                                        </i>
+                                                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-sm btn-info d-inline-flex align-items-center me-2">
+                                                        <i class="fas fa-edit me-1"></i>
                                                         Edit
                                                     </a>
 
-                                                    <form action="{{ route('user.destroy', $user->id) }}" method="POST" 
-                                                        class="ml-2" >
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <button class="btn btn-sm btn-danger btn-icon confirm-delete">
-                                                            <i class="fas fa-trash"></i> Delete
+                                                    <form action="{{ route('user.destroy', $user->id) }}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-sm btn-danger d-inline-flex align-items-center">
+                                                            <i class="fas fa-trash me-1"></i> Delete
                                                         </button>
                                                     </form>
-
                                                 </div>
+
                                             </td>
                                         </tr>
                                         @endforeach
-                                        
-                                        
-                                        
-                                        
+
+
+
+
                                     </table>
                                 </div>
                                 <div class="float-right">
