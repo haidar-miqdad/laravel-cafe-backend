@@ -77,7 +77,8 @@
                                             <th>Category</th>
                                             <th>Price</th>
                                             <th>Stock</th>
-                                            <th>Created At</th>
+                                            <th>Image</th>
+                                        
                                             <th>Action</th>
                                         </tr>
 
@@ -87,13 +88,21 @@
                                             </td>
                                             <td>{{ $product->category }}
                                             </td>
-                                            <td>
+                                            
                                                 <td>{{ format_rupiah($product->price) }}</td>
-                                            </td>
+                                            
                                             <td>
                                                 {{ $product->stock }}
                                             </td>
-                                            <td>{{ $product->created_at }}</td>
+                                            <td>
+
+                                                @if($product->image)
+                                                <img src="{{ asset('storage/products/' . $product->image) }}" alt="" class="w-100 h-100">
+                                                    @else
+                                                    <span class="badge badge-danger">No Image</span>
+                                                @endif
+                                            </td>
+
                                             <td>
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{ route('product.edit', $product->id) }}"
