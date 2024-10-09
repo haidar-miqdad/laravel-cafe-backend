@@ -54,7 +54,7 @@
                                     </select>
                                 </div>
                                 <div class="float-right">
-                                    <form method="GET", action="{{ route('user.index') }}">
+
                                         <div class="input-group">
                                             <input type="text"
                                                 class="form-control"
