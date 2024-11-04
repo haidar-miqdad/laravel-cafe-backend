@@ -35,7 +35,7 @@
                         <div class="card">
                             <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                            
+
                             <div class="card-header">
                                 <h4>Input Text</h4>
                             </div>
@@ -44,7 +44,7 @@
                                     <label>Product Name</label>
                                     <input type="text"
                                         class="form-control @error('name') is-invalid
-                                            
+
                                         @enderror" name="name">
                                         @error('name')
                                         <div class="invalid-feedback">
@@ -56,7 +56,7 @@
                                     <label>Product Price</label>
                                     <input type="number"
                                         class="form-control @error('price') is-invalid
-                                            
+
                                         @enderror" name="price">
                                         @error('price')
                                         <div class="invalid-feedback">
@@ -68,7 +68,7 @@
                                     <label>Product Stock</label>
                                     <input type="number"
                                         class="form-control @error('stock') is-invalid
-                                            
+
                                         @enderror" name="stock">
                                         @error('stock')
                                         <div class="invalid-feedback">
@@ -81,7 +81,7 @@
                                     <input type="text"
                                     maxlength="255"
                                         class="form-control @error('stock') is-invalid
-                                            
+
                                         @enderror" name="description">
                                         @error('description')
                                         <div class="invalid-feedback">
@@ -89,7 +89,7 @@
                                         </div>
                                         @enderror
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="form-label">Category</label>
                                     <div class="selectgroup w-100">
@@ -124,8 +124,9 @@
                                     <input type="file"
                                     maxlength="255"
                                         class="form-control @error('image') is-invalid
-                                            
-                                        @enderror" name="image">
+
+                                        @enderror"
+                                        name="image">
                                         @error('image')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -135,10 +136,10 @@
                                 </div>
                                 <div class="card-footer text-right">
                                     <button type="submit"
-                                        class=" btn btn-primary">Submit</button>   
+                                        class=" btn btn-primary">Submit</button>
                                 </div>
-                            </form>  
-                    
+                            </form>
+
                 </div>
 
             </div>

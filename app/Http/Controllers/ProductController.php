@@ -29,7 +29,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        
+
         // dd($request->file('image'));
 
 
@@ -40,26 +40,22 @@ class ProductController extends Controller
                 'description' => 'required',
                 'category' => 'required|in:food,drink,snack',
                 'stock' => 'required',
-                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048', 
+                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ]);
 
-        $filename = time() . '.' . $request->image->extension();   
-        $request->image->storeAs('public/products', $filename); 
+        $filename = time() . '.' . $request->image->extension();
+        $request->image->storeAs('public/products', $filename);
+
+
         $data = $request->all();
-        
-        $product = new Product();
-        $product->name = $request->name;
-        $product->price = (int) $request->price;
-        $product->description = $request->description;
-        $product->category = $request->category;
-        $product->stock = (int) $request->stock;
-        $product->image = $filename;
-        $product->save();
+        $data['image'] = $filename;
+        Product::create($data);
+
         return redirect()->route('product.index')->with('success', 'Product successfully created');
-        
+
         }catch (\Throwable $th) {
         return redirect()->route('product.index')->with('error', $th->getMessage());
-            
+
         }
     }
 
@@ -69,12 +65,11 @@ class ProductController extends Controller
         return view('pages.products.edit', compact('product'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
         // dd($request->input('category'));
-        
+
         $data = $request->all();
-        $product = Product::findOrFail($id);
         $product->update($data);
         return redirect()->route('product.index')->with('success', 'Product successfully updated');
     }
@@ -84,11 +79,11 @@ class ProductController extends Controller
         if ($product->image) {
             $imagePath = storage_path('app/public/products/' . $product->image);
             if (file_exists($imagePath)) {
-                unlink($imagePath); 
+                unlink($imagePath);
             }
         }
         $product->delete();
         return redirect()->route('product.index')->with('success', 'Product successfully deleted');
     }
-    
+
 }

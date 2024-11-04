@@ -36,8 +36,8 @@
                     You can manage all Products, such as editing, deleting and more.
                 </p>
 
-                
-               
+
+
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
@@ -72,13 +72,13 @@
                                 <div class="table-responsive">
                                     <table class="table-striped table">
                                         <tr>
-                                        
+
                                             <th>Name</th>
                                             <th>Category</th>
                                             <th>Price</th>
                                             <th>Stock</th>
                                             <th>Image</th>
-                                        
+
                                             <th>Action</th>
                                         </tr>
 
@@ -88,19 +88,21 @@
                                             </td>
                                             <td>{{ $product->category }}
                                             </td>
-                                            
+
                                                 <td>{{ format_rupiah($product->price) }}</td>
-                                            
+
                                             <td>
                                                 {{ $product->stock }}
                                             </td>
                                             <td>
 
                                                 @if($product->image)
-                                                <img src="{{ asset('storage/products/' . $product->image) }}" alt="" class="w-100 h-100">
+                                                <img
+                                                 src="{{ asset('storage/products/' . $product->image) }}"
+                                                 alt="" class="w-100 h-100">
                                                     @else
-                                                    <span class="badge badge-danger">No Image</span>
-                                                @endif
+                                                        <span class="badge badge-danger">No Image</span>
+                                                    @endif
                                             </td>
 
                                             <td>
@@ -112,7 +114,7 @@
                                                         Edit
                                                     </a>
 
-                                                    <form action="{{ route('product.destroy', $product->id) }}" method="POST" 
+                                                    <form action="{{ route('product.destroy', $product->id) }}" method="POST"
                                                         class="ml-2" >
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -125,10 +127,10 @@
                                             </td>
                                         </tr>
                                         @endforeach
-                                        
-                                        
-                                        
-                                        
+
+
+
+
                                     </table>
                                 </div>
                                 <div class="float-right">

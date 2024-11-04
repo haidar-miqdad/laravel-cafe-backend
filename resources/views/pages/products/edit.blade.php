@@ -42,10 +42,10 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Product Name</label>
-                                    <input type="text" 
+                                    <input type="text"
                                     value="{{ $product->name }}"
                                         class="form-control @error('name') is-invalid
-                                            
+
                                         @enderror" name="name">
                                         @error('name')
                                         <div class="invalid-feedback">
@@ -55,10 +55,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Product Price</label>
-                                    <input type="number" 
+                                    <input type="number"
                                     value="{{ $product->price }}"
                                         class="form-control @error('price') is-invalid
-                                            
+
                                         @enderror" name="price">
                                         @error('price')
                                         <div class="invalid-feedback">
@@ -68,10 +68,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Product Stock</label>
-                                    <input type="text" 
+                                    <input type="text"
                                     value="{{ $product->stock }}"
                                         class="form-control @error('stock') is-invalid
-                                            
+
                                         @enderror" name="stock">
                                         @error('stock')
                                         <div class="invalid-feedback">
@@ -81,10 +81,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Product Description</label>
-                                    <input type="text" 
-                                    value="{{ $product->stock }}"
+                                    <input type="text"
+                                    value="{{ $product->description }}"
                                         class="form-control @error('description') is-invalid
-                                            
+
                                         @enderror" name="description">
                                         @error('description')
                                         <div class="invalid-feedback">
@@ -124,10 +124,10 @@
                                 </div>
                                 <div class="card-footer text-right">
                                     <button type="submit"
-                                        class=" btn btn-primary">Submit</button>   
+                                        class=" btn btn-primary">Submit</button>
                                 </div>
-                            </form>  
-                    
+                            </form>
+
                 </div>
 
             </div>
